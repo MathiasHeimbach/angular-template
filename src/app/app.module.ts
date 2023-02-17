@@ -3,9 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { ItemDirective } from './item.directive';
+
+import { counterReducer } from './counter';
+
 
 
 // @NgModule decorator with its metadata
@@ -17,8 +21,8 @@ import { ItemDirective } from './item.directive';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    StoreModule.forRoot({ counter: counterReducer }),  ],
   providers: [],
   bootstrap: [AppComponent]
 })
